@@ -35,6 +35,7 @@ router.get('/', async (req, res) => {
 
 // GET the survey form page
 router.get('/create', (req, res) => {
+    console.log({title: 'Create Survey', error: null }); // log data to be passed
     res.render('surveyForm', { title: 'Create Survey' });
 });
 
