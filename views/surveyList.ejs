@@ -1,0 +1,41 @@
+<% include Partials/header.ejs %>
+<% include Partials/main_nav.ejs %>
+
+<main class="container">
+    <h1><%= title %></h1>
+    <% if (error) { %>
+        <p class="alert alert-danger"><%= error %></p>
+    <% } %>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Year of Study</th>
+                <th>Program</th>
+                <th>Recommendation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% surveys.forEach(survey => { %>
+                <tr>
+                    <td><%= survey.name %></td>
+                    <td><%= survey.email %></td>
+                    <td><%= survey.yearOfStudy %></td>
+                    <td><%= survey.program %></td>
+                    <td><%= survey.recommendation %></td>
+                    <td>
+                        <a href="/surveys/edit/<%= survey._id %>" class="btn btn-primary btn-sm">Edit</a>
+                        <form action="/surveys/delete/<%= survey._id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/surveys/create" class="btn btn-success">Create New Survey</a>
+</main>
+
+<% include Partials/footer.ejs %>
