@@ -1,3 +1,7 @@
+// routes/survey.js
+var express = require('express');
+var router = express.Router();
+let Survey = require('../model/survey');// Import your survey model
 // POST to create a new survey
 router.post('/create', async (req, res) => {
     try {
