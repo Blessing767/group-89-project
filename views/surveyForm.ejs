@@ -1,0 +1,47 @@
+<% include Partials/header.ejs %>
+<% include Partials/main_nav.ejs %>
+
+<main class="container">
+    <h1><%= title %></h1>
+    <% if (error) { %>
+        <p class="alert alert-danger"><%= error %></p>
+    <% } %>
+    <form action="/surveys/create" method="POST">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="yearOfStudy">Year of Study</label>
+            <input type="text" class="form-control" name="yearOfStudy" required>
+        </div>
+        <div class="form-group">
+            <label for="program">Program</label>
+            <input type="text" class="form-control" name="program" required>
+        </div>
+        <div class="form-group">
+            <label>What software applications did you learn this semester?</label><br>
+            <input type="checkbox" name="applicationsLearned" value="App1"> App1<br>
+            <input type="checkbox" name="applicationsLearned" value="App2"> App2<br>
+        </div>
+        <div class="form-group">
+            <label>How likely are you to recommend this course to a friend?</label><br>
+            <input type="radio" name="recommendation" value="1" required> 1<br>
+            <input type="radio" name="recommendation" value="2"> 2<br>
+            <input type="radio" name="recommendation" value="3"> 3<br>
+            <input type="radio" name="recommendation" value="4"> 4<br>
+            <input type="radio" name="recommendation" value="5"> 5<br>
+        </div>
+        <div class="form-group">
+            <label for="additionalComments">Additional Comments</label>
+            <textarea class="form-control" name="additionalComments"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
+
+<% include Partials/footer.ejs %>
