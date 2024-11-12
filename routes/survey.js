@@ -33,6 +33,11 @@ router.get('/', async (req, res) => {
     }
 });
 
+// GET the survey form page
+router.get('/create', (req, res) => {
+    res.render('surveyForm', { title: 'Create Survey' });
+});
+
 // POST to update an existing survey
 router.post('/edit/:id', async (req, res) => {
     try {
