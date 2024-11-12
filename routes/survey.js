@@ -2,6 +2,12 @@
 var express = require('express');
 var router = express.Router();
 let Survey = require('../model/survey');// Import your survey model
+
+//GET the survey creation form
+router.get('/create', (req, res) => {
+    res.render('surveyForm', { title: 'Create Survey', error: null });
+});
+
 // POST to create a new survey
 router.post('/create', async (req, res) => {
     try {
@@ -31,12 +37,6 @@ router.get('/', async (req, res) => {
         console.error(err);
         res.render('surveyList', { title: 'Surveys', error: 'Failed to load surveys' });
     }
-});
-
-// GET the survey form page
-router.get('/create', (req, res) => {
-    console.log({title: 'Create Survey', error: null }); // log data to be passed
-    res.render('surveyForm', { title: 'Create Survey' });
 });
 
 // POST to update an existing survey

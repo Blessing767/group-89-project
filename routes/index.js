@@ -27,16 +27,5 @@ router.get('/contactus', function(req, res, next) {
   res.render('index', { title: 'Contact us' });
 });
 
-// GET landing page with active and public surveys
-router.get('/', async (req, res) => {
-  try {
-      // Fetch only surveys that are marked as active and public
-      const surveys = await Survey.find({ isActive: true, isPublic: true });
-      res.render('index', { title: 'Home', surveys });
-  } catch (err) {
-      console.error(err);
-      res.render('index', { title: 'Home', surveys: [], error: 'Failed to load surveys' });
-  }
-});
 
 module.exports = router;

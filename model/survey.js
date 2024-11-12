@@ -10,8 +10,6 @@ let surveySchema = mongoose.Schema({
     applicationsLearned: [String],
     recommendation: Number,
     additionalComments: String,
-    isActive: { type: Boolean, default: true },  // New field to mark surveys as active
-    isPublic: { type: Boolean, default: true }   // New field to mark surveys as public
 }, {
     collection: "surveys"
 });
