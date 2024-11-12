@@ -1,7 +1,15 @@
-  <%- include Partials/header.ejs %>
-  <%- include Partials/main_nav.ejs %>
-  <!--Main Content-->
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    
-<%- include Partials/footer.ejs %>
+<% include Partials/header.ejs %>
+<% include Partials/main_nav.ejs %>
+
+<main class="container text-center mt-5">
+    <!-- Site Name and Logo -->
+    <h1>Welcome to Student Voice</h1>
+    <img src="/Users/muhweziblessing/INFRProject/group-89-project/public/Assets/images/Logo.jpeg" alt="Team Logo" style="width: 150px; height: auto;"> <!-- Replace with the actual path to your logo -->
+
+    <!-- Hero Button to Create a New Survey -->
+    <div class="mt-4">
+        <a href="/surveys/create" class="btn btn-primary btn-lg">Create a New Survey</a>
+    </div>
+</main>
+
+<% include Partials/footer.ejs %>
