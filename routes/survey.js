@@ -26,7 +26,7 @@ router.post('/create', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const surveys = await Survey.find();
-        res.render('surveyList', { title: 'Surveys', surveys });
+        res.render('surveyList', { title: 'Surveys', surveys, error: null });
     } catch (err) {
         console.error(err);
         res.render('surveyList', { title: 'Surveys', error: 'Failed to load surveys' });
