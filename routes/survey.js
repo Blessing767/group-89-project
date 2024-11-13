@@ -12,7 +12,7 @@ router.get('/create', (req, res) => {
 router.get('/edit/:id', async (req, res) => {
     try {
         const survey = await Survey.findById(req.params.id);
-        res.render('surveyForm', { title: 'Edit Survey', survey, formAction: `/surveys/edit/${req.params.id}` });
+        res.render('surveyForm', { title: 'Edit Survey', error: null });
     } catch (err) {
         console.error(err);
         res.redirect('/surveys');
@@ -65,7 +65,7 @@ router.post('/edit/:id', async (req, res) => {
         res.redirect('/surveys');
     } catch (err) {
         console.error(err);
-        res.render('surveyEditForm', { title: 'Edit Survey', error: 'Failed to update survey', formAction: `/surveys/edit/${req.params.id}`, survey: req.body });
+        res.render('surveyEditForm', { title: 'Edit Survey', error: 'Failed to update survey', survey: req.body });
     }
 });
 
