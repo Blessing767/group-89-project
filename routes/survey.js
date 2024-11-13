@@ -8,6 +8,17 @@ router.get('/create', (req, res) => {
     res.render('surveyForm', { title: 'Create Survey', error: null });
 });
 
+// GET edit survey form
+router.get('/edit/:id', async (req, res) => {
+    try {
+        const survey = await Survey.findById(req.params.id);
+        res.render('surveyForm', { title: 'Edit Survey', survey, formAction: `/surveys/edit/${req.params.id}` });
+    } catch (err) {
+        console.error(err);
+        res.redirect('/surveys');
+    }
+})
+
 // POST to create a new survey
 router.post('/create', async (req, res) => {
     try {
@@ -54,7 +65,7 @@ router.post('/edit/:id', async (req, res) => {
         res.redirect('/surveys');
     } catch (err) {
         console.error(err);
-        res.render('surveyEditForm', { title: 'Edit Survey', error: 'Failed to update survey' });
+        res.render('surveyEditForm', { title: 'Edit Survey', error: 'Failed to update survey', formAction: `/surveys/edit/${req.params.id}`, survey: req.body });
     }
 });
 
