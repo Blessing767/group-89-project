@@ -81,7 +81,7 @@ router.post('/edit/:id', async (req, res) => {
 // POST to delete a survey
 router.delete('/delete/:id', async (req, res) => {
     try {
-        await Survey.findByIdAndRemove(req.params.id);
+        await Survey.findByIdAndDelete(req.params.id);
         res.redirect('/surveys');
     } catch (err) {
         console.error(err);

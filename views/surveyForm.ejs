@@ -6,39 +6,39 @@
     <% if (error) { %>
         <p class="alert alert-danger"><%= error %></p>
     <% } %>
-    <form action="/surveys/create" method="POST">
+    <form action="<%= formAction %>" method="POST">
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" required>
+            <input type="text" class="form-control" name="name" value="<%= survey ? survey.name : '' %>" required>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" required>
+            <input type="email" class="form-control" name="email" value="<%= survey ? survey.email : '' %>" required>
         </div>
         <div class="form-group">
             <label for="yearOfStudy">Year of Study</label>
-            <input type="text" class="form-control" name="yearOfStudy" required>
+            <input type="text" class="form-control" name="yearOfStudy" value="<%= survey ? survey.yearOfStudy : '' %>" required>
         </div>
         <div class="form-group">
             <label for="program">Program</label>
-            <input type="text" class="form-control" name="program" required>
+            <input type="text" class="form-control" name="program" value="<%= survey ? survey.program : '' %>" required>
         </div>
         <div class="form-group">
             <label>What software applications did you learn this semester?</label><br>
-            <input type="checkbox" name="applicationsLearned" value="App1"> App1<br>
-            <input type="checkbox" name="applicationsLearned" value="App2"> App2<br>
+            <input type="checkbox" name="applicationsLearned" value="App1" <% if (survey && survey.applicationsLearned.includes('App1')) { %>checked<% } %>> App1<br>
+            <input type="checkbox" name="applicationsLearned" value="App2" <% if (survey && survey.applicationsLearned.includes('App2')) { %>checked<% } %>> App2<br>
         </div>
         <div class="form-group">
             <label>How likely are you to recommend this course to a friend?</label><br>
-            <input type="radio" name="recommendation" value="1" required> 1<br>
-            <input type="radio" name="recommendation" value="2"> 2<br>
-            <input type="radio" name="recommendation" value="3"> 3<br>
-            <input type="radio" name="recommendation" value="4"> 4<br>
-            <input type="radio" name="recommendation" value="5"> 5<br>
+            <input type="radio" name="recommendation" value="1" <% if (survey && survey.recommendation == 1) { %>checked<% } %>> 1<br>
+            <input type="radio" name="recommendation" value="2" <% if (survey && survey.recommendation == 2) { %>checked<% } %>> 2<br>
+            <input type="radio" name="recommendation" value="3" <% if (survey && survey.recommendation == 3) { %>checked<% } %>> 3<br>
+            <input type="radio" name="recommendation" value="4" <% if (survey && survey.recommendation == 4) { %>checked<% } %>> 4<br>
+            <input type="radio" name="recommendation" value="5" <% if (survey && survey.recommendation == 5) { %>checked<% } %>> 5<br>
         </div>
         <div class="form-group">
             <label for="additionalComments">Additional Comments</label>
-            <textarea class="form-control" name="additionalComments"></textarea>
+            <textarea class="form-control" name="additionalComments"><%= survey ? survey.additionalComments : '' %></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
