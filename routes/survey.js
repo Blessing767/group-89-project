@@ -3,15 +3,9 @@ var express = require('express');
 var router = express.Router();
 let Survey = require('../model/survey');// Import your survey model
 
-
-// GET the survey creation form
+//GET the survey creation form
 router.get('/create', (req, res) => {
-    res.render('surveyForm', {
-        title: 'Create Survey',
-        formAction: '/surveys/create', // Add formAction for the POST route
-        survey: null, // No survey data for creating a new survey
-        error: null // No error initially
-    });
+    res.render('surveyForm', { title: 'Create Survey', error: null });
 });
 
 // GET edit survey form
