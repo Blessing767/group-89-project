@@ -1,17 +1,17 @@
-// models/survey.js
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// Define the schema
+
 let surveySchema = mongoose.Schema({
     name: String,
     email: String,
     yearOfStudy: String,
     program: String,
-    applicationsLearned: [String],
+    applicationsLearned: [String], 
     recommendation: Number,
     additionalComments: String,
 }, {
-    collection: "surveys"
+    collection: "surveys",
+    timestamps: true // This enables `createdAt` and `updatedAt` fields
 });
 
 module.exports = mongoose.model('Survey', surveySchema);

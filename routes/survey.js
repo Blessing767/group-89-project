@@ -1,15 +1,27 @@
-// routes/survey.js
-var express = require('express');
-var router = express.Router();
-let Survey = require('../model/survey');// Import your survey model
+const express = require('express');
+const router = express.Router();
+const Survey = require('../model/survey'); // Import survey model
 
-//GET the survey creation form
-router.get('/create', (req, res) => {
-    res.render('surveyForm', { title: 'Create Survey', error: null });
+// Middleware to check if the user is authenticated
+function isAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login'); // Redirect to login page if not authenticated
+}
+
+// GET the survey creation form (protected)
+router.get('/create', isAuthenticated, (req, res) => {
+    res.render('surveyForm', {
+        title: 'Create Survey',
+        formAction: '/surveys/create', // Add formAction for the POST route
+        survey: null, // No survey data for creating a new survey
+        error: null // No error initially
+    });
 });
 
-// GET edit survey form
-router.get('/edit/:id', async (req, res) => {
+// GET edit survey form (protected)
+router.get('/edit/:id', isAuthenticated, async (req, res) => {
     try {
         const survey = await Survey.findById(req.params.id); // Fetch survey by ID
         if (!survey) {
@@ -27,9 +39,8 @@ router.get('/edit/:id', async (req, res) => {
     }
 });
 
-
-// POST to create a new survey
-router.post('/create', async (req, res) => {
+// POST to create a new survey (protected)
+router.post('/create', isAuthenticated, async (req, res) => {
     try {
         const newSurvey = new Survey({
             name: req.body.name,
@@ -59,8 +70,8 @@ router.get('/', async (req, res) => {
     }
 });
 
-// POST to update an existing survey
-router.post('/edit/:id', async (req, res) => {
+// POST to update an existing survey (protected)
+router.post('/edit/:id', isAuthenticated, async (req, res) => {
     try {
         await Survey.findByIdAndUpdate(req.params.id, {
             name: req.body.name,
@@ -78,14 +89,14 @@ router.post('/edit/:id', async (req, res) => {
     }
 });
 
-// POST to delete a survey
-router.delete('/delete/:id', async (req, res) => {
+// POST to delete a survey (protected)
+router.post('/delete/:id', isAuthenticated, async (req, res) => {
     try {
         await Survey.findByIdAndDelete(req.params.id);
-        res.redirect('/surveys');
+        res.redirect('/surveys'); // Redirect to the survey list
     } catch (err) {
         console.error(err);
-        res.render('surveyList', { title: 'Surveys', error: 'Failed to delete survey' });
+        res.status(500).send('Error deleting survey');
     }
 });
 

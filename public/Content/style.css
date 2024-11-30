@@ -1,0 +1,218 @@
+/* General body styles */
+body {
+    background-color: #101010; /* Darker black for a modern feel */
+    color: #d4af37; /* Gold inspired by the logo */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Hero Section */
+.homepage {
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #d4af37; /* Match logo gold */
+}
+
+.homepage-text {
+    text-align: left;
+    max-width: 50%; /* Take up half the screen width */
+}
+
+.main-heading {
+    font-size: 4rem; /* Larger font size for the main heading */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #d4af37; /* Bright gold for the heading */
+    text-shadow: 2px 2px 5px #000; /* Subtle shadow for contrast */
+    margin-bottom: 20px;
+}
+
+.tagline {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #e6c200; /* Slightly softer gold for tagline */
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    color: #d4af37; /* Maintain the standard gold tone for subtext */
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #d4af37;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background-color: black;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    transform: scale(1.1);
+}
+
+.homepage-logo {
+    text-align: center;
+}
+
+.homepage-logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px; /* Make the logo larger */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffd700; /* Bright gold border */
+    border-radius: 10px;
+}
+
+/* Contact Us Form */
+.contact-card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 40px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.contact-card h2 {
+    color: #ffd700;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.contact-card label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffd700;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.contact-card input,
+.contact-card textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #d4af37;
+    font-size: 1rem;
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+    color: #888;
+}
+
+.contact-card button {
+    background-color: #ffd700;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-card button:hover {
+    background-color: black;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    transform: scale(1.05);
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    border-bottom: 2px solid #ffd700; /* Bright gold for sectioning */
+}
+
+header img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin: 10px 0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px #000;
+    color: #d4af37; /* Bright gold for heading */
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #e6c200; /* Lighter gold for subtext */
+}
+
+/* Main Content */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Prevents overflow with rounded corners */
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle; /* Align text vertically */
+}
+
+.table th {
+    background-color: #333;
+    color: #ffd700;
+    font-weight: bold;
+    border-bottom: 2px solid #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.table td {
+    background-color: #222;
+    border-bottom: 1px solid #444;
+    color: #f5f5f5;
+    font-size: 0.95rem; /* Slightly smaller text */
+}
+
+.table tr:hover {
+    background-color: #444;
+    transition: background-color 0.3s ease;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #101010;
+    color: #d4af37; /* Lighter gold for footer text */
+    padding: 10px 0;
+    margin-top: 30px;
+    border-top: 1px solid #ffd700;
+    font-size: 0.9rem;
+}

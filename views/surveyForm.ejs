@@ -1,47 +1,49 @@
-<% include Partials/header.ejs %>
-<% include Partials/main_nav.ejs %>
-
-<main class="container">
-    <h1><%= title %></h1>
-    <% if (error) { %>
-        <p class="alert alert-danger"><%= error %></p>
-    <% } %>
-    <form action="<%= formAction %>" method="POST">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" value="<%= survey ? survey.name : '' %>" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" value="<%= survey ? survey.email : '' %>" required>
-        </div>
-        <div class="form-group">
-            <label for="yearOfStudy">Year of Study</label>
-            <input type="text" class="form-control" name="yearOfStudy" value="<%= survey ? survey.yearOfStudy : '' %>" required>
-        </div>
-        <div class="form-group">
-            <label for="program">Program</label>
-            <input type="text" class="form-control" name="program" value="<%= survey ? survey.program : '' %>" required>
-        </div>
-        <div class="form-group">
-            <label>What software applications did you learn this semester?</label><br>
-            <input type="checkbox" name="applicationsLearned" value="App1" <% if (survey && survey.applicationsLearned.includes('App1')) { %>checked<% } %>> App1<br>
-            <input type="checkbox" name="applicationsLearned" value="App2" <% if (survey && survey.applicationsLearned.includes('App2')) { %>checked<% } %>> App2<br>
-        </div>
-        <div class="form-group">
-            <label>How likely are you to recommend this course to a friend?</label><br>
-            <input type="radio" name="recommendation" value="1" <% if (survey && survey.recommendation == 1) { %>checked<% } %>> 1<br>
-            <input type="radio" name="recommendation" value="2" <% if (survey && survey.recommendation == 2) { %>checked<% } %>> 2<br>
-            <input type="radio" name="recommendation" value="3" <% if (survey && survey.recommendation == 3) { %>checked<% } %>> 3<br>
-            <input type="radio" name="recommendation" value="4" <% if (survey && survey.recommendation == 4) { %>checked<% } %>> 4<br>
-            <input type="radio" name="recommendation" value="5" <% if (survey && survey.recommendation == 5) { %>checked<% } %>> 5<br>
-        </div>
-        <div class="form-group">
-            <label for="additionalComments">Additional Comments</label>
-            <textarea class="form-control" name="additionalComments"><%= survey ? survey.additionalComments : '' %></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</main>
-
-<% include Partials/footer.ejs %>
+<%- include('partials/header') %>
+<%- include('partials/main_nav') %>
+<body>
+    <main class="container">
+        <h1 class="my-4"><%= survey ? 'Edit Survey' : 'Create Survey' %></h1>
+        <form action="<%= formAction %>" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Survey Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= survey ? survey.name : '' %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= survey ? survey.email : '' %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="yearOfStudy" class="form-label">Year of Study</label>
+                <input type="text" class="form-control" id="yearOfStudy" name="yearOfStudy" value="<%= survey ? survey.yearOfStudy : '' %>">
+            </div>
+            <div class="mb-3">
+                <label for="program" class="form-label">Program</label>
+                <input type="text" class="form-control" id="program" name="program" value="<%= survey ? survey.program : '' %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Applications Learned</label>
+                <div>
+                    <% const apps = ['App1', 'App2', 'App3']; %>
+                    <% apps.forEach(function(app) { %>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="applicationsLearned" value="<%= app %>" 
+                            <%= survey && survey.applicationsLearned.includes(app) ? 'checked' : '' %>>
+                            <label class="form-check-label"><%= app %></label>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="recommendation" class="form-label">Recommendation</label>
+                <input type="number" class="form-control" id="recommendation" name="recommendation" value="<%= survey ? survey.recommendation : '' %>" min="1" max="10" required>
+            </div>
+            <div class="mb-3">
+                <label for="additionalComments" class="form-label">Additional Comments</label>
+                <textarea class="form-control" id="additionalComments" name="additionalComments" rows="4"><%= survey ? survey.additionalComments : '' %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><%= survey ? 'Update Survey' : 'Create Survey' %></button>
+        </form>
+    </main>
+<%- include('partials/footer') %>
+</body>
+</html>
