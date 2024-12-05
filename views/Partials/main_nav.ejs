@@ -32,6 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Register</a></li>
                 <% } else { %>
                     <!-- Show Logout when user is logged in -->
+                    <li class="nav-item"><span class="nav-link">Welcome, <%= user.username %>!</span></li>
                     <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 <% } %>
             </ul>
