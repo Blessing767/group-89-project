@@ -7,9 +7,9 @@
             <%= message %>
         </div>
     <% } %>
-    <div class="row">
-        <div class="offset-md-4 col-md-4">
-            <h1>Please Login</h1>
+    <div class="center-container">
+        <div class="card">
+            <h2>Please Login</h2>
             <form method="post" action="/login" autocomplete="off">
                 <fieldset class="form-group">
                     <label for="username">Username</label>
@@ -33,12 +33,12 @@
                         id="password" 
                         required
                     >
-                    <p class="mt-2">or <a href="/register">Register Here</a></p>
+                    <p class="mt-2">or <a href="/register" class="text-baby-pink">Register Here</a></p>
                 </fieldset>
-                <fieldset class="form-group text-right">
-                    <button type="submit" class="btn btn-success">Login</button>
+                <fieldset class="form-group text-center">
+                    <button type="submit" class="btn btn-pink">Login</button>
                     <a href="/">
-                        <button type="button" class="btn btn-warning">Cancel</button>
+                        <button type="button" class="btn btn-grey">Cancel</button>
                     </a>
                 </fieldset>
             </form>
