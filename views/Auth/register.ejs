@@ -7,42 +7,48 @@
             <%= message %>
         </div>
     <% } %>
-    <div class="row">
-        <div class="offset-md-4 col-md-4">
-            <h1>Create an account</h1>
+    <div class="center-container">
+        <div class="card">
+            <h2>Create an account</h2>
             <form method="post" action="/register" autocomplete="off">
                 <fieldset class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control"
+                    <input 
+                        type="text" 
+                        class="form-control" 
                         name="username" 
-                        placeholder="Enter the username"
-                        id="username" required autofocus>
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control"
-                        name="password" 
-                        placeholder="Enter the password"
-                        id="password" required>
+                        placeholder="Enter the username" 
+                        id="username" 
+                        required 
+                        autofocus
+                    >
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control"
+                    <input 
+                        type="email" 
+                        class="form-control" 
                         name="email" 
-                        placeholder="Enter your email"
-                        id="email" required autofocus>
+                        placeholder="Enter your email" 
+                        id="email" 
+                        required
+                    >
                 </fieldset>
                 <fieldset class="form-group">
-                    <label for="displayName">Display Name</label>
-                    <input type="text" class="form-control"
-                        name="displayName" 
-                        placeholder="Enter your display name"
-                        id="displayName" required>
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        name="password" 
+                        placeholder="Enter the password" 
+                        id="password" 
+                        required
+                    >
                 </fieldset>
-                <fieldset class="form-group text-right">
-                    <input type="submit" class="btn btn-success" value="Register">
+                <fieldset class="form-group text-center">
+                    <button type="submit" class="btn btn-pink">Register</button>
                     <a href="/">
-                        <input type="button" class="btn btn-warning" value="Cancel">
+                        <button type="button" class="btn btn-grey">Cancel</button>
                     </a>
                 </fieldset>
             </form>
