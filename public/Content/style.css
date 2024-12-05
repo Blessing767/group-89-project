@@ -1,215 +1,525 @@
-/* General Styles */
-body {
-    background-color: #101010; /* Luxurious black background */
-    color: #d4af37; /* Dark gold text */
-    font-family: 'Roboto', sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.8;
-}
-
-/* Global Container for Consistent Layout */
-.container {
-    max-width: 1200px; /* Restrict maximum width */
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #101010; /* Black background */
-}
-
-/* Header */
-header {
-    text-align: center;
-    background-color: #101010;
-    padding: 20px 0;
-    border-bottom: 2px solid #d4af37;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    color: #d4af37;
-    text-transform: uppercase;
-    text-shadow: 0px 2px 5px rgba(212, 175, 55, 0.5);
-}
-
-header p {
-    font-size: 1.2rem;
-    color: #e6c200;
-}
-
-/* Navigation Bar */
-.navbar {
-    background-color: #101010;
-    padding: 15px;
-    position: sticky;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #006d5b; /* Emerald green */
+    color: #ffcbcb; /* Baby pink */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header Styling */
+  header {
+    background-color: #006d5b; /* Emerald green */
+    color: #ffcbcb; /* Baby pink */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 3px solid #ffcbcb;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #d4af37;
-}
-
-.navbar a {
-    color: #d4af37;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.navbar a:hover {
-    background-color: #d4af37;
-    color: #101010;
-    border-radius: 5px;
-}
-
-/* Hero Section */
-.homepage {
+    box-sizing: border-box; /* Ensures border is included in the height */
+  }
+  
+  header .nav-left {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding: 60px 20px;
-    height: 100vh; /* Full screen height */
-    background: #101010;
-    color: #d4af37;
-    gap: 40px; /* Add spacing between sections */
-}
-
-.homepage h1 {
-    font-size: 2.5rem; /* Adjust font size for better scaling */
-    margin-bottom: 20px;
-    color: #d4af37;
-    text-shadow: 0 3px 6px rgba(212, 175, 55, 0.7);
-}
-
-.homepage p {
-    font-size: 1.1rem; /* Slightly reduce text size */
-    margin-bottom: 30px;
-    line-height: 1.5;
-    color: #e6c200;
-}
-
-.homepage-logo img {
-    max-width: 90%;
-    height: auto;
-    border: 2px solid #d4af37;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.homepage .btn {
-    background-color: #d4af37;
-    color: #101010;
-    padding: 15px 30px;
-    font-size: 1rem;
+  }
+  
+  header .nav-left h1 {
+    font-size: 24px;
     font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    margin-right: 20px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #006d5b;
+    color: #ffcbcb;
+    border-bottom: 3px solid #ffcbcb;
+}
+  
+  header a {
+    text-decoration: none;
+    color: #ffcbcb;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  header a:hover {
+    text-decoration: underline;
+    color: #ffdede; /* Slightly lighter pink */
+  }
+
+  .nav-link i {
+    margin-right: 8px; /* Adds space between the icon and text */
+    font-size: 18px; /* Adjust icon size */
 }
 
-.homepage .btn:hover {
-    background-color: #101010;
-    color: #d4af37;
-    border: 2px solid #d4af37;
+.navbar-brand i {
+    margin-right: 5px;
+    font-size: 20px;
+}
+/* Navbar Styling */
+.navbar {
+    background-color: #006d5b !important; /* Emerald green */
+    color: #ffcbcb !important; /* Baby pink font */
+    border-bottom: 3px solid #ffcbcb; /* Baby pink border */
 }
 
-/* Table Styles */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px auto;
-    background-color: #101010;
-    border: 1px solid #d4af37;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #ffcbcb !important; /* Baby pink font */
+    font-weight: bold;
 }
 
-.table th {
-    background-color: #181818;
-    color: #d4af37;
-    text-transform: uppercase;
-    padding: 10px 15px;
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: #ffdede !important; /* Lighter baby pink on hover */
+    text-decoration: underline;
 }
 
-.table td {
-    padding: 15px;
+.navbar-toggler {
+    border-color: #ffcbcb; /* Baby pink toggle button border */
+}
+
+.navbar-toggler-icon {
+    background-color: #ffcbcb; /* Baby pink toggle icon */
+}
+
+  
+  /* Main Content Area */
+main {
+    flex: 1; /* Ensures the content takes up available space */
+    display: flex;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    flex-direction: column;
+    justify-content: flex-start; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: left; /* Centers text inside the main content */
+    padding: 20px;
+    min-height: 80vh;
+    min-height: calc(100vh - 140px); /* Adjusts for header and footer height */
+  }
+
+  /* Footer Styling */
+  footer {
+    background-color: #006d5b; /* Emerald green */
+    color: #ffcbcb; /* Baby pink */
     text-align: center;
-    color: #d4af37;
-    border-bottom: 1px solid #333;
-}
+    padding: 15px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 3px solid #ffcbcb;
+  }
+  
+  
+  
+  /* Card Styling */
+  .card {
+    background-color: #a9a9a9; /* Light grey for the card */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    color: #000; /* Black text for better readability */
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px; /* Minimal space between header and card */
+  }
+  
+  /* Button Styling */
+  button {
+    background-color: #a9a9a9; /* Different shade of grey for buttons */
+    color: #000; /* Black text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  button:hover {
+    background-color: #8f8f8f; /* Darker grey on hover */
+  }
+  
+  /* Link Button Styling */
+  a.button-link {
+    display: inline-block;
+    background-color: #a9a9a9; /* Different shade of grey for buttons */
+    color: #000; /* Black text */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+  
+  a.button-link:hover {
+    background-color: #8f8f8f; /* Darker grey on hover */
+  }
+/* Navbar Styling */
+.bg-emerald {
+    background-color: #006d5b !important; /* Emerald green */
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .text-baby-pink {
+    color: #ffcbcb !important; /* Baby pink */
+  }
+  
+  .text-baby-pink:hover {
+    color: #ffdede !important; /* Slightly lighter pink on hover */
+  }
+  
+  .nav-link {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+    color: #ffdede !important; /* Slightly lighter pink */
+  }
+  
+  .navbar-toggler {
+    border-color: #ffcbcb; /* Baby pink toggle button */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #ffcbcb; /* Baby pink icon */
+  }
 
-.table tr:hover {
-    background-color: #181818;
-}
 
-/* Contact Us */
-.contact-card {
-    background-color: #101010;
+
+/* Pink Button Styling */
+.btn-pink {
+    background-color: #ffcbcb; /* Baby pink */
+    color: #000; /* Black text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-pink:hover {
+    background-color: #ffdede; /* Lighter pink on hover */
+  }
+  
+  /* Grey Button Styling */
+  .btn-grey {
+    background-color: #a9a9a9; /* Grey */
+    color: #000; /* Black text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-grey:hover {
+    background-color: #8f8f8f; /* Darker grey on hover */
+  }
+
+  .text-baby-pink {
+    color: #ffcbcb; /* Baby pink */
+  }
+  
+  .text-baby-pink:hover {
+    color: #ffdede; /* Lighter baby pink */
+    text-decoration: underline;
+  }
+
+.card {
+    background-color: #a9a9a9; /* Dark grey for better visibility */
     padding: 40px;
     border-radius: 10px;
-    max-width: 600px;
-    margin: 40px auto;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    border: 1px solid #d4af37;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    color: #000; /* Black text for better readability */
+    max-width: 800px; /* Increase the maximum width */
+    width: 100%; /* Use 80% of the page width */
+    text-align: left; /* Align text to the left for forms */
+    margin: auto; /* Center the card horizontally */
 }
 
-.contact-card input, .contact-card textarea {
-    width: 100%;
+
+form .form-control {
+    width: 100%; /* Ensure inputs take the full width of the card */
     padding: 10px;
-    border: 1px solid #d4af37;
-    background-color: #181818;
-    color: #d4af37;
+    margin: 10px 0;
     border-radius: 5px;
-    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
-.contact-card input::placeholder, .contact-card textarea::placeholder {
-    color: #888;
-}
+/* Logo Styling */
+.logo {
+    width: 300px; /* Adjust the size */
+    height: 300px; /* Ensure it's a square for the circle effect */
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures the image fits properly */
+    margin-bottom: 20px; /* Adds spacing below the logo */
+    border: 5px solid #ffcbcb; /* Optional: Add a pink border */
+  }
 
-.contact-card button {
-    background-color: #d4af37;
-    color: #101010;
-    font-size: 1rem;
-    padding: 10px 20px;
+/* Table Styling */
+table {
+    width: 100%; /* Make the table take the full width of its container */
+    border-collapse: collapse; /* Remove spacing between table cells */
+    margin-top: 20px;
+    background-color: #d3d3d3; /* Light grey for table background */
+    border-radius: 10px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures rounded corners work */
+  }
+  
+  th, td {
+    padding: 15px; /* Add padding to table cells */
+    text-align: center; /* Center-align text */
+    border: 1px solid #ccc; /* Light grey borders */
+  }
+  
+  th {
+    background-color: #006d5b; /* Emerald green for header */
+    color: #ffcbcb; /* Baby pink for header text */
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f5f5f5; /* Light background for even rows */
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #ffffff; /* White background for odd rows */
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .action-buttons button {
     border: none;
+    padding: 8px 12px;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .action-buttons .btn-edit {
+    background-color: #ffcbcb; /* Baby pink */
+    color: #000; /* Black text */
+  }
+  
+  .action-buttons .btn-delete {
+    background-color: #ff4d4d; /* Red for delete */
+    color: #fff; /* White text */
+  }
+  
+  .action-buttons .btn-edit:hover {
+    background-color: #ffdede; /* Lighter pink on hover */
+  }
+  
+  .action-buttons .btn-delete:hover {
+    background-color: #ff6666; /* Slightly lighter red on hover */
+  }
+
+
+  /* Emerald Green Background */
+.bg-emerald {
+    background-color: #006d5b !important;
 }
 
-.contact-card button:hover {
-    background-color: #101010;
-    color: #d4af37;
-    border: 2px solid #d4af37;
+/* Baby Pink Text */
+.text-baby-pink {
+    color: #ffcbcb !important;
+}
+
+/* Button Styling */
+.btn-edit {
+    background-color: #ffcbcb;
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.btn-delete {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.btn-edit:hover {
+    background-color: #ffdede;
+}
+
+.btn-delete:hover {
+    background-color: #ff6666;
+}
+
+/* Title Styling */
+h2 {
+    color: #ffcbcb; /* Baby pink */
+    font-weight: bold;
+}
+
+/* Table Styling */
+table {
+    width: 100%; /* Full width */
+    margin-top: 20px;
+    background-color: #d3d3d3; /* Grey background for table */
+    border-collapse: collapse; /* Remove gaps between cells */
+    border-radius: 10px; /* Optional rounded corners */
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+th, td {
+    padding: 15px; /* Padding for spacing */
+    text-align: center; /* Center-align text */
+    border: 1px solid #ccc; /* Light grey borders */
+}
+
+th {
+    background-color: #006d5b; /* Emerald green header */
+    color: #ffcbcb; /* Baby pink text */
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5; /* Light grey for even rows */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+}
+
+/* Buttons Styling */
+.btn-edit {
+    background-color: #ffcbcb;
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.btn-delete {
+    background-color: #ff4b4b;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.btn-edit:hover {
+    background-color: #ffdede;
+}
+
+.btn-delete:hover {
+    background-color: #ff6666;
+}
+
+/* Centering Content */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 140px); /* Adjust for header and footer height */
+    margin-top: 60px; /* Add a margin under the header */
+    
+}
+
+/* Contact Page Styling */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - 140px); /* Adjust for header and footer height */
+    padding: 20px;
+    margin-top: 60px; /* Add space under the header */
+}
+
+.contact-text {
+    flex: 1;
+    margin-right: 20px;
+    color: #ffcbcb; /* Baby pink */
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.contact-card {
+    flex: 1;
+    max-width: 400px; /* Limit the width of the card */
+    background-color: #a9a9a9; /* Light grey */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: left;
 }
 
 /* Login/Register Forms */
 .form-card {
-    background-color: #101010;
+    background-color: #333333; /* Slightly darker grey for contrast */
     padding: 40px;
     border-radius: 10px;
     max-width: 400px;
     margin: 50px auto;
-    border: 1px solid #d4af37;
+    border: 1px solid #ffcbcb; /* Baby pink border */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .form-card input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #d4af37;
-    background-color: #181818;
-    color: #d4af37;
+    border: 1px solid #ffcbcb; /* Baby pink border */
+    background-color: #444444; /* Darker grey for input background */
+    color: #ffcbcb; /* Baby pink font */
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
+.form-card input::placeholder {
+    color: #ffcbcb; /* Baby pink placeholder text */
+}
+
 .form-card button {
     width: 100%;
-    background-color: #d4af37;
-    color: #101010;
+    background-color: #ffcbcb; /* Baby pink background */
+    color: #333333; /* Darker grey font for contrast */
     font-size: 1rem;
     padding: 10px;
     border: none;
@@ -218,38 +528,7 @@ header p {
 }
 
 .form-card button:hover {
-    background-color: #101010;
-    color: #d4af37;
-    border: 2px solid #d4af37;
-}
-
-/* Footer */
-footer {
-    background-color: #101010;
-    color: #d4af37;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    border-top: 2px solid #d4af37;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .homepage {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .homepage-text, .homepage-logo {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .table th, .table td {
-        font-size: 0.9rem;
-    }
-
-    .contact-card, .form-card {
-        padding: 20px;
-    }
+    background-color: #333333; /* Darker grey on hover */
+    color: #ffcbcb; /* Baby pink font on hover */
+    border: 2px solid #ffcbcb; /* Baby pink border */
 }
