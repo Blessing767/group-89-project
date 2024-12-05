@@ -1,5 +1,5 @@
-<%- include('partials/header') %>
-<%- include('partials/main_nav') %>
+<%- include('Partials/header') %>
+<%- include('Partials/main_nav') %>
 <div class="container text-center">
     <h1><%= message %></h1>
     <% if (error && error.status) { %>
@@ -9,4 +9,4 @@
         <pre><%= error.stack %></pre>
     <% } %>
 </div>
-<%- include('partials/footer') %>
+<%- include('Partials/footer') %>
