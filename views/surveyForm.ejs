@@ -1,7 +1,8 @@
-<%- include('partials/header') %>
-<%- include('partials/main_nav') %>
+<%- include ('partials/header') %>
+<%- include ('partials/main_nav') %>
 <body>
     <main class="container">
+       <div class="class">
         <h1 class="my-4"><%= survey ? 'Edit Survey' : 'Create Survey' %></h1>
         <form action="<%= formAction %>" method="POST">
             <div class="mb-3">
@@ -44,6 +45,5 @@
             <button type="submit" class="btn btn-primary"><%= survey ? 'Update Survey' : 'Create Survey' %></button>
         </form>
     </main>
-<%- include('partials/footer') %>
-</body>
-</html>
+
+<%- include ('partials/footer') %>
