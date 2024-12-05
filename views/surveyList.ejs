@@ -1,58 +1,52 @@
 <%- include('partials/header') %>
 <%- include('partials/main_nav') %>
-<body>
-    <main class="container">
-        <div class="card mt-4">
-            <div class="card-header text-center bg-dark text-warning">
-                <h2>Available Surveys</h2>
-            </div>
-            <div class="card-body">
-                <table class="table table-bordered">
-                    <thead class="bg-gold text-black">
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Year of Study</th>
-                            <th>Program</th>
-                            <th>Recommendation</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% if (surveys && surveys.length > 0) { %>
-                            <% surveys.forEach(function(survey) { %>
-                                <tr>
-                                    <td><%= survey.name %></td>
-                                    <td><%= survey.email %></td>
-                                    <td><%= survey.yearOfStudy %></td>
-                                    <td><%= survey.program %></td>
-                                    <td>
-                                        <span class="<%= survey.recommendation === 'Yes' ? 'text-success' : 'text-danger' %>">
-                                            <%= survey.recommendation %>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="/surveys/edit/<%= survey._id %>" class="btn btn-warning btn-sm">
-                                            <i class="fas fa-edit"></i> Edit
-                                        </a>
-                                        <form action="/surveys/delete/<%= survey._id %>" method="POST" style="display:inline;">
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash"></i> Delete
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            <% }); %>
-                        <% } else { %>
-                            <tr>
-                                <td colspan="6" class="text-center">No surveys found. Create a new one!</td>
-                            </tr>
-                        <% } %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </main>
+<main class="center-container">
+  <div class="card">
+    <h2 class="text-center mt-4 text-baby-pink">Available Surveys</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="bg-emerald text-baby-pink">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Year of Study</th>
+                <th>Program</th>
+                <th>Recommendation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (surveys && surveys.length > 0) { %>
+                <% surveys.forEach(function(survey) { %>
+                    <tr>
+                        <td><%= survey.name %></td>
+                        <td><%= survey.email %></td>
+                        <td><%= survey.yearOfStudy %></td>
+                        <td><%= survey.program %></td>
+                        <td>
+                            <span class="<%= survey.recommendation === 'Yes' ? 'text-success' : 'text-danger' %>">
+                                <%= survey.recommendation %>
+                            </span>
+                        </td>
+                        <td class="d-flex justify-content-center">
+                            <a href="/surveys/edit/<%= survey._id %>" class="btn btn-edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <form action="/surveys/delete/<%= survey._id %>" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
+                                <button type="submit" class="btn btn-delete">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="6" class="text-center">No surveys found. Create a new one!</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</main>
 <%- include('partials/footer') %>
 </body>
 </html>
