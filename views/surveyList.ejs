@@ -1,7 +1,6 @@
 <%- include('Partials/header') %>
 <%- include('Partials/main_nav') %>
 <main class="center-container">
-  <div class="card">
     <h2 class="text-center mt-4 text-baby-pink">Available Surveys</h2>
     <table class="table table-bordered table-hover">
         <thead class="bg-emerald text-baby-pink">
@@ -10,8 +9,9 @@
                 <th>Email</th>
                 <th>Year of Study</th>
                 <th>Program</th>
+                <th>Applications Learned</th>
                 <th>Recommendation</th>
-                <th>Actions</th>
+                <th>Additional Comments</th>
             </tr>
         </thead>
         <tbody>
@@ -22,11 +22,10 @@
                         <td><%= survey.email %></td>
                         <td><%= survey.yearOfStudy %></td>
                         <td><%= survey.program %></td>
-                        <td>
-                            <span class="<%= survey.recommendation === 'Yes' ? 'text-success' : 'text-danger' %>">
-                                <%= survey.recommendation %>
-                            </span>
-                        </td>
+                        <td><%= survey.applicationsLearned.join(', ') %></td>
+                        <td><%= survey.recommendation %></td>
+                        <td><%= survey.additionalComments %></td>
+                        
                         <td class="d-flex justify-content-center">
                             <a href="/surveys/edit/<%= survey._id %>" class="btn btn-edit">
                                 <i class="fas fa-edit"></i> Edit
