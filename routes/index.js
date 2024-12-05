@@ -10,13 +10,13 @@ let Survey = require('../model/survey'); // Ensure the path to the model is corr
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'Home',
-    displayName:req.user ? req.user.displayName:'' });
+    displayName:req.user ? req.user.username:'' });
 });
 /* GET home page. */
 router.get('/home', function(req, res, next) {
   res.render('index', { 
     title: 'Home',
-    displayName:req.user ? req.user.displayName:'' });
+    displayName:req.user ? req.user.username:'' });
 });
 /* GET surveys page. */
 router.get('/surveys', async function(req, res, next) {
@@ -29,12 +29,25 @@ router.get('/surveys', async function(req, res, next) {
   }
 });
 
+// Delete survey route
+router.post('/surveys/delete/:id', async (req, res) => {
+  try {
+      const surveyId = req.params.id;
+      await Survey.findByIdAndDelete(surveyId);
+      req.flash('success', 'Survey deleted successfully!');
+      res.redirect('/surveys');
+  } catch (err) {
+      req.flash('error', 'Error deleting survey!');
+      res.redirect('/surveys');
+  }
+});
+
 /* GET Contact Us page */
 router.get('/contactus', function (req, res, next) {
   res.render('contactus', {
     title: 'Contact Us',
     successMessage: null, // Initialize successMessage for form submission feedback
-    displayName: req.user ? req.user.displayName : '',
+    displayName: req.user ? req.user.username : '',
   });
 });
 
@@ -52,7 +65,7 @@ router.post('/contactus', (req, res) => {
   res.render('contactus', {
     title: 'Contact Us',
     successMessage: 'Thank you for reaching out! We will get back to you soon.',
-    displayName: req.user ? req.user.displayName : '',
+    displayName: req.user ? req.user.username : '',
   });
 });
 
@@ -63,7 +76,7 @@ router.get('/login',function(req,res,next){
     res.render('Auth/login',{
       title:'Login',
       message:req.flash('loginMessage'),
-      displayName:req.user ? req.user.displayName:''
+      displayName:req.user ? req.user.username:''
     })
   }
   else{
@@ -99,7 +112,7 @@ router.get('/register',function(req,res,next){
       {
         title:'Register',
         message:req.flash('registerMessage'),
-        displayName: req.user ? req.user.displayName:''
+        displayName: req.user ? req.user.username:''
       }
     )
   }
@@ -112,8 +125,7 @@ router.post('/register',function(req,res,next){
   let newUser = new User({
     username: req.body.username,
     //password:req.body.password,
-    email:req.body.email,
-    displayName:req.body.displayName
+    email:req.body.email
   })
   User.register(newUser, req.body.password,(err)=>{
     if(err){
@@ -127,7 +139,7 @@ router.post('/register',function(req,res,next){
         {
           title:'Register',
           message:req.flash('registerMessage'),
-          displayName: req.user ? req.user.displayName:''
+          displayName: req.user ? req.user.username:''
         })
     }
     else{
