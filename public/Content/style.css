@@ -283,12 +283,12 @@ form .form-control {
 
 /* Logo Styling */
 .logo {
-    width: 300px; /* Adjust the size */
-    height: 300px; /* Ensure it's a square for the circle effect */
-    border-radius: 50%; /* Makes it circular */
+    width: 500px; /* Adjust the size */
+    height: 500px; /* Ensure it's a square for the circle effect */
+    border-radius: 0; /* Makes it circular */
     object-fit: cover; /* Ensures the image fits properly */
     margin-bottom: 20px; /* Adds spacing below the logo */
-    border: 5px solid #ffcbcb; /* Optional: Add a pink border */
+    
   }
 
 /* Table Styling */
