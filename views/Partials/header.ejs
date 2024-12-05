@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> | STUDENT VOICE</title>
-    <link rel='stylesheet' href='/Content/style.css' />
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel='stylesheet' href='/Content/style.css' />
     <script src="/Script/app.js"></script>
     <script src="/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this survey? This action cannot be undone.");
+    }
+</script>
   </head>
